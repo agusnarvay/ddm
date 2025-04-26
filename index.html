@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo-inicio.css">
+    <script defer src="javascript/funcion-inicio.js"></script>
+    <script src="https://kit.fontawesome.com/7468035ca9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <div class="header1"> <!--el header 1 lo usare como div para colocar el logo de la empresa / tanto el header 1 como el header 2 tendran el mismo bg color, por lo que parecerá un solo div-->
+        <a href="index.html"><img src="Logo/Delicias del mirador logotipo-19.png" alt="logo de la empresa"></a> <!--el logo fue proporcionado por la empresa-->
+    </div>
+    <div class="header2"> <!--el header 2 cuenta con dos divs / es el menú del sitio web / cuenta con 4 enlaces que llevan a las diferentes paginas que ofrece la web / además se agregaron 3 iconos sociales que se descargaron de webfonts - se le agregaron los enlaces de las redes sociales de la empresa-->
+        <div class="social">
+            <a href="https://www.instagram.com/delicias.delmirador/?hl=es" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/d.delmirador/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://linktr.ee/Delicias.delmirador" target="_blank"><i class="fa-solid fa-envelope"></i></a> 
+            <!--me he descargado iconos en https://fontawesome.com/ para poder colocar 3 iconos sociales en el menú de la web-->
+        </div>
+        <button class="abrir" id="abrir">≡</button> <!--se creó un botón con una clase para abrir el menú en el header / se agrega id también para poder utilizarlo en javascript-->
+        <nav>
+            <ul> <!--es la lista que compone el menú en el header - serán solo 3 inicio, servicios y contacto-->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <button class="cerrar" id="cerrar">x</button> <!--se creó otro botón en el header, pero para cerrar el menú una vez abierto con javascript. Se le agregó un id por la misma razón que a la clase abrir-->            
+        </nav>
+    </div>
+</header>
+    <div class="portada"> <!--es la portada del sitio - cuenta con una imagen que ocupa el ancho de toda la pantalla, un h1 y dos botones - es la primera impresion del sitio web-->
+        <h1 id="portada-titulo">Desde 2013, <br>tu evento en nuestras manos</h1> <!--este título está dentro de la portada del sitio web - podemos encontrarlo en la bio del instagram de la empresa. me pareció algo que puede llamar la atención y poder jugar también con el estilo y las funciones de js-->
+        <div class="botones"> <!--se agregan a la portada dos botones sobre servicios y contacto, que tendrán un enlace a su web correspondiente-->
+           <a href="servicios.html" class="boton uno">Nuestros servicios</a>
+           <a href="contacto.html" class="boton dos">Contactanos</a>
+            <!--<button class="boton uno">Nuestros servicios</button>
+            <button class="boton dos">Contactanos</button> -->
+        </div>
+    </div>
+<section class="productos"> <!--sección que aparecerá en la pagina de inicio, donde mostrará los principales productos que ofrece la empresa. Cuenta con un tiíeulo en h2, junto con 6 tipos de productos/servicios que serán mostrados en cajas individuales - cada caja tendrá una img, un titulo en h3 y un p que lo acompaña para describir el producto/servicio - cada uno estará dentro de un div (individual), pero con el mismo nombre "cuadro" - esto hará que sea más fácil ordenarlos en la página-->
+    <h2 class="titulo1"><a href="servicios.html">Nuestros servicios</a></h2>
+    <div class="cuadro">
+        <div class="circulo">
+            <img src="img-inicio/panificados.webp" alt="panificados">
+        </div>
+        <h3>Panificados</h3>
+        <p>Elaboramos panes artesanales con masa madre, así como también panes saborizados y orgánicos. </p>
+    </div>
+    <div class="cuadro">
+        <div class="circulo">
+            <img src="img-inicio/focaccia.webp" alt="salados">
+        </div>
+        <h3>Salados</h3>
+        <p>Elaboramos sandwiches de miga, figacitas, focaccias y prepizzas frescas, listas para consumir.</p>
+    </div>
+    <div class="cuadro">
+        <div class="circulo">
+            <img src="img-inicio/tortas.webp" alt="tortas">
+        </div>
+        <h3>Tortas</h3>
+        <p>Realizamos todo tipo de tortas dulces, desde chocolate hasta frutos rojos, dependiendo de la estación del año.</p>
+    </div>
+    <div class="cuadro">
+        <div class="circulo">
+            <img src="img-inicio/tarta.webp" alt="tartas">
+        </div>
+        <h3>Tartas</h3>
+        <p>Las tartas de siempre que no pueden faltar en tu merienda. Tartas caseras de dulce de leche, de ricota y de frutilla. </p>
+    </div>
+    <div class="cuadro">
+        <div class="circulo">
+            <img src="img-inicio/feria.webp" alt="feria don bosco">
+        </div>
+        <h3>Feria Don Bosco</h3>
+        <p>El primer sábado de cada mes nos pueden encontrar en la Feria Don bosco, en Ramos mejía. Pasá a visitarnos!</p>
+    </div>
+    <div class="cuadro">
+        <div class="circulo">
+            <img src="img-inicio/lunch.webp" alt="lunch">
+        </div>
+        <h3>Servicios de Lunch</h3>
+        <p>Servicio ideal para eventos y celebraciones. Contactanos y te armamos una propuesta con productos variados de Delicias.</p>
+    </div>
+</div>
+</section>
+<section class="nosotros"> <!--esta sección es sobre 'quienes somos' -> relata brevemente quienes son y qué hacen los dueños de este emprendimiento. Esta sección contiene un h2 y un p separados, para que queden como párrafos diferentes y sea más fácil agregarle estilo al texto. -->
+    <h2 class="titulo2">¿Quiénes somos?</h2>
+<div class="somos">
+    <p>Somos Darío y Julieta, fundadores de Delicias del Mirador. Nuestro emprendimiento nació en 2013 con el deseo de compartir nuestra pasión por la pastelería, elaborando productos tanto dulces como salados.
+    </p>
+    <p>
+    Hace más de 10 años que llevamos adelante este proyecto con la misma ilusión y entusiasmo que el primer día. En todo este tiempo, fuimos creciendo, sumando nuevas propuestas y capacitándonos para ofrecer siempre lo mejor.
+    </p>
+    <p>
+    Hoy en día elaboramos tartas, alfajores, galletas, tortas, panes, sándwiches, huevos y roscas de pascua y muchos más, siempre con dedicación y amor por lo que hacemos. 
+    </p>
+    <p>
+    <span>¡Gracias por elegirnos!</span>
+    </p>
+</div>
+</section>
+<footer> <!--es el footer / cuenta con las paginas de privacidad y de cookies, asi como tambien de los iconos sociales que tambien estan en el header (será con el mismo estilo que el header)-->
+        <div class="contenedor-footer">
+            <div class="privacidad">
+                <a href="#">Políticas de Privacidad</a>
+            </div>
+                <div class="social2">
+                    <a href="https://www.instagram.com/delicias.delmirador/?hl=es" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/d.delmirador/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://linktr.ee/Delicias.delmirador" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+        <div class="cookies">
+            <a href="#">Políticas de Cookies</a>
+        </div>
+        </div>
+</footer>
+</body>
+</html>

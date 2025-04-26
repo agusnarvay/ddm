@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo-contacto.css">
+    <script defer src="javascript/funciones-contacto.js"></script>
+    <script src="https://kit.fontawesome.com/7468035ca9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <div class="header1"> <!--el header 1 lo usare como div para colocar el logo de la empresa / tanto el header 1 como el header 2 tendran el mismo bg color, por lo que parecerá un solo div-->
+        <a href="index.html"><img src="Logo/Delicias del mirador logotipo-19.png" alt="logo de la empresa"></a> <!--el logo fue proporcionado por la empresa-->
+    </div>
+    <div class="header2"> <!--el header 2 cuenta con dos divs / es el menú del sitio web / cuenta con 4 enlaces que llevan a las diferentes paginas que ofrece la web / además se agregaron 3 iconos sociales que se descargaron de webfonts - se le agregaron los enlaces de las redes sociales de la empresa-->
+        <div class="social">
+            <a href="https://www.instagram.com/delicias.delmirador/?hl=es" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/d.delmirador/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://linktr.ee/Delicias.delmirador" target="_blank"><i class="fa-solid fa-envelope"></i></a> 
+            <!--me he descargado iconos en https://fontawesome.com/ para poder colocar 3 iconos sociales en el menú de la web-->
+        </div>
+        <button class="abrir" id="abrir">≡</button> <!--se creó un botón con una clase para abrir el menú en el header / se agrega id también para poder utilizarlo en javascript-->
+        <nav>
+            <ul> <!--es la lista que compone el menú en el header - serán solo 3 inicio, servicios y contacto-->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <button class="cerrar" id="cerrar">x</button> <!--se creó otro botón en el header, pero para cerrar el menú una vez abierto con javascript. Se le agregó un id por la misma razón que a la clase abrir-->            
+        </nav>
+    </div>
+</header>
+<div class="titulo-form">
+    <h1>Contactanos!</h1>
+</div>
+<div class="contacto">
+
+    <form action="" method="get">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="apellido" placeholder="Apellido">
+        <input type="email" name="mail" placeholder="Email">
+        <input type="tel" name="tel" placeholder="Teléfono">
+        <textarea name="mensaje" id="mensaje" placeholder="Escribe tu mensaje..."></textarea>
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
+
+</div>
+<footer> <!--es el footer / cuenta con las paginas de privacidad y de cookies, asi como tambien de los iconos sociales que tambien estan en el header (será con el mismo estilo que el header)-->
+        <div class="contenedor-footer">
+            <div class="privacidad">
+                <a href="#">Políticas de Privacidad</a>
+            </div>
+                <div class="social2">
+                    <a href="https://www.instagram.com/delicias.delmirador/?hl=es" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/d.delmirador/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://linktr.ee/Delicias.delmirador" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+        <div class="cookies">
+            <a href="#">Políticas de Cookies</a>
+        </div>
+        </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--se agregó la fuente POPPINS, copiando el link desde google fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!--links ligados a css, javascript y se agregaron iconos que se van a utilizar en este sitio web-->
+
+    <link rel="stylesheet" href="css/estilo-servicios.css">
+    <script defer src="javascript/funciones-servicios.js"></script>
+    <script src="https://kit.fontawesome.com/7468035ca9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <div class="header1"> <!--el header 1 lo usare como div para colocar el logo de la empresa / tanto el header 1 como el header 2 tendran el mismo bg color, por lo que parecerá un solo div-->
+        <a href="index.html"><img src="Logo/Delicias del mirador logotipo-19.png" alt="logo de la empresa"></a> <!--el logo fue proporcionado por la empresa-->
+    </div>
+    <div class="header2"> <!--el header 2 cuenta con dos divs / es el menú del sitio web / cuenta con 4 enlaces que llevan a las diferentes paginas que ofrece la web / además se agregaron 3 iconos sociales que se descargaron de webfonts - se le agregaron los enlaces de las redes sociales de la empresa-->
+        <div class="social">
+            <a href="https://www.instagram.com/delicias.delmirador/?hl=es" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/d.delmirador/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://linktr.ee/Delicias.delmirador" target="_blank"><i class="fa-solid fa-envelope"></i></a> 
+            <!--me he descargado iconos en https://fontawesome.com/ para poder colocar 3 iconos sociales en el menú de la web-->
+        </div>
+        <button class="abrir" id="abrir">≡</button> <!--se creó un botón con una clase para abrir el menú en el header / se agrega id también para poder utilizarlo en javascript-->
+        <nav>
+            <ul> <!--es la lista que compone el menú en el header - serán solo 3 inicio, servicios y contacto-->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <button class="cerrar" id="cerrar">x</button> <!--se creó otro botón en el header, pero para cerrar el menú una vez abierto con javascript. Se le agregó un id por la misma razón que a la clase abrir-->            
+        </nav>
+    </div>
+</header>
+</div>
+<div class="portada1"> <!--se agrega una class a la portada, ya que cada imagen de portada será diferente, por eso cada una tendrá un numero y será más fácil podes editarla en CSS-->
+</div>
+<section class="tipo"> <!--una section será el tipo de producto / en esta seccion podremos ver los productos de cada tipo de producto organizados por section - div - article -->
+
+    <div class="titulo"> <!--se agregó un div con el titulo del tipo de producto que será animado en CSS -->
+
+        <h1 class="animado"> <!--se repite varias veces el titulo para que se optimice un poco más el espacio de pantalla, se agregan iconos al inicio y al final de la palabra. Los iconos estan relacionados con el tipo de producto -->
+
+            <span>&nbsp;&nbsp;&nbsp;Panificados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bread-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Panificados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bread-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Panificados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bread-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Panificados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bread-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Panificados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bread-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Panificados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bread-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Panificados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bread-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Panificados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bread-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Panificados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bread-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Panificados</i></span>
+        </h1>
+
+    <div class="productos"> <!--se agregó un div con la clase 'productos', que será la caja que contenga la informacion de cada uno de los productos de la marca.-->
+        <article class="producto"> <!--se usa el article apra crear el contenido propio de cada producto-->
+            <img src="img-servicios/pan-masamadre.webp" alt="Pan de masa madre"> <!--imagen que aparecerá dentro del bloque del producto en forma de circulo-->
+            <div class="descripcion"> <!--titulo + descripción del producto en pocas palabras-->
+                <h3>Pan de Masa madre</h3>
+                <p>El pan de masa madre está hecho solamente con harina, agua y fermento natural que dejamos reposar para que crezca solo, sin levaduras industriales. Usamos solo ingredientes orgánicos para estos tipos de productos. </p>
+            </div>
+        </article>
+        <!--no se comentó en las siguientes lineas porque el contenido es el mismo en todos los productos-->
+        <article class="producto">
+            <img src="img-servicios/pan-organico.webp" alt="Pan orgánico">
+            <div class="descripcion">
+                <h3>Pan orgánico</h3>
+                <p>El pan de masa madre está hecho solamente con harina, agua y fermento natural que dejamos reposar para que crezca solo, sin levaduras industriales. Usamos solo ingredientes orgánicos para estos tipos de productos. </p>
+            </div>
+        </article>
+        <article class="producto">
+            <img src="img-servicios/pandequeso.webp" alt="Pan de queso">
+            <div class="descripcion">
+                <h3>Pan de queso</h3>
+                <p>El pan de queso es un pan tradicional del norte argentino, hecha a base de harina de mandioca y varios tipos de quesos. Es suave por dentro y ligeramente crocante por fuera. </p>
+            </div>
+        </article>
+        <article class="producto">
+            <img src="img-servicios/pandulce.webp" alt="Pan dulce">
+            <div class="descripcion">
+                <h3>Pan dulce</h3>
+                <p>Este tipo de pan es esponjoso, elaborado con masa madre y una fermentación lenta para lograr su suavidad. Está relleno, generalmente, con chocolate o con frutas abrillantadas. </p>
+            </div>
+        </article>
+    </div>
+</section>
+<div class="portada2">
+</div>
+<section class="tipos">
+    <div class="titulo">
+        <h1 class="animado">
+            <span>&nbsp;&nbsp;&nbsp;Salados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-pizza-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Salados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-pizza-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Salados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-pizza-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Salados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-pizza-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Salados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-pizza-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Salados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-pizza-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Salados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-pizza-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Salados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-pizza-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Salados&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-pizza-slice"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Salados</i></span>
+        </h1>
+    </div>
+
+    <div class="productos">
+        <article class="producto">
+            <img src="img-servicios/figaza.webp" alt="figaza">
+            <div class="descripcion">
+                <h3>Figaza</h3>
+                <p>Nuestras figazas son elaboradas conharina de trigo, aceite de oliva y sal. Suaves por dentro, con una corteza fina y dorada. PUeden estar rellenas de lo que más quieras. </p>
+            </div>
+        </article>
+        <article class="producto">
+            <img src="img-servicios/miga.webp" alt="Sandwich de miga">
+            <div class="descripcion">
+                <h3>Sandwich de miga</h3>
+                <p>Hechos con pan de miga fresco, rellenos con productos de primera calidad. Pueden ser simples o triples, de huevo, tomate, jamón o queso, entre muchos otros. Ideales para eventos.  </p>
+            </div>
+        </article>
+        <article class="producto">
+            <img src="img-servicios/prepizza.webp" alt="Prepizzas">
+            <div class="descripcion">
+                <h3>Prepizza</h3>
+                <p>Nuestras prepizzas están hechas con productos de la mejor calidad, esponjosas por dentro y ligeramente crocantes por fuera. Se usan productos orgánicos y una fermentación controlada, solo tenés que agregarle el queso!</p>
+            </div>
+        </article>
+        <article class="producto">
+            <img src="img-servicios/focaccia.webp" alt="Focaccia">
+            <div class="descripcion">
+                <h3>Focaccia</h3>
+                <p>Elaborada con aceite de oliva, sal gruega, romero y tomate, es de miga suave y con masa aireada, pero levemente crujiente por fuera. </p>
+            </div>
+        </article>
+    </div>
+</section>
+<div class="portada3">
+</div>
+<section class="tipo">
+    <div class="titulo">
+        <h1 class="animado">
+            <span>&nbsp;&nbsp;&nbsp;Tortas&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-cake-candles"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Tortas&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-cake-candles"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Tortas&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-cake-candles"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Tortas&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-cake-candles"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Tortas&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-cake-candles"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Tortas&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-cake-candles"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Tortas&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-cake-candles"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Tortas&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-cake-candles"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Tortas&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-cake-candles"></i></span>
+            <span>&nbsp;&nbsp;&nbsp;Tortas</i></span>
+        </h1>
+        
+
+    <div class="productos">
+        <article class="producto">
+            <img src="img-servicios/frutos-rojos.webp" alt="Torta frutos rojos">
+            <div class="descripcion">
+                <h3>Torta Frutos rojos</h3>
+                <p>Torta con base de chocolate mojado en café, mousse de chcolate por encima y decoración de frutos rojos de estación. </p>
+            </div>
+        </article>
+        <article class="producto">
+            <img src="img-servicios/brownie.webp" alt="Brownie de chocolate">
+            <div class="descripcion">
+                <h3>Brownie de chocolate</h3>
+                <p>Torta hecha a base de galletas 'chocolinas', mojadas en café, con una mezcla de queso crema y dulce de leche, con una decoración de copos de dulce de leche y crema por encima. </p>
+            </div>
+        </article>
+        <article class="producto">
+            <img src="img-servicios/chocotorta.webp" alt="Chocotorta">
+            <div class="descripcion">
+                <h3>Chocotorta</h3>
+                <p>Este marquise de chocolate con base de brownie, contiene una base de chocolate húmedo, con dulce de leche, crema de nutella y pedacitos de Kinder por encima.</p>
+            </div>
+        </article>
+        <article class="producto">
+            <img src="img-servicios/pistac.webp" alt="Torta frambuesa y pistachios">
+            <div class="descripcion">
+                <h3>Torta de pistachos</h3>
+                <p>Torta con base de masa de croissant, con mermelada de frambuesa y crema pastelera de pistachos, con una decoración de frutos rojos y pistachos de estación.</p>
+            </div>
+        </article>
+    </div>
+</section>
+<footer> <!--es el footer / cuenta con las paginas de privacidad y de cookies, asi como tambien de los iconos sociales que tambien estan en el header (será con el mismo estilo que el header)-->
+    <div class="contenedor-footer"> <!--se usó un contenedor principal para el footer donde encontramos los enlaces e iconos, así se puede organizar mejor en el css-->
+        <div class="privacidad"> 
+            <a href="#">Políticas de Privacidad</a>
+        </div>
+            <div class="social2">
+                <a href="https://www.instagram.com/delicias.delmirador/?hl=es" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/d.delmirador/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://linktr.ee/Delicias.delmirador" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+    <div class="cookies">
+        <a href="#">Políticas de Cookies</a>
+    </div>
+    </div>
+</footer>
+<!--se agregó un div con una caja para las imagenes ampliadas, se hará con js. también se agregó un icono de X para cerrar la 'galería'. No será una galería como tal, pero el usuario va a poder clickear sobre las imagenes y verlas en tamaño mas grande. -->
+<div id="caja" class="caja"> <!--las imagenes, al abrirlas quedarán en una caja que su estilo se impondrá en el css-->
+    <span class="cerrar-caja">x</span> <!--icono de x para cerrar la 'galeria'-->
+    <img src="" alt="" class="img-ampliada"> <!--se usa para css y js, para poder agregarlo estilo y una funcion-->
+</div>
+</body>
+</html>

@@ -1,0 +1,419 @@
+/*estilo principal*/
+
+*{/*se eliminan los márgenes y padding por defecto - usé el border-box para evitar que los elementos se desborden del viewport o del contenedor y también ayuda al responsive */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Lo agregué después de haber tenido problemas con el contenido de la web - dejaba un espacio a la derecha y la mejor opción fue agregarle un box-sizing para evitar cualquier desborde. */
+}
+body{ 
+    font-family: 'poppins', sans-serif; /* Define la fuente principal para mantener una coherencia en el proyecto*/
+    width: 100%; /*El ancho 100% asegura que el body ocupe toda la pantalla del vp */
+    min-height: 100vh; /*min-height para que entre todo el contenido y llene al menos la altura del viewport*/
+    display: flex; /*alinea el contenido general del body*/
+    flex-direction: column; /*el contenido se organizará de arriba para abajo*/
+    justify-content: center; /*el contenido se centrará de manera vertical*/
+
+/*header: logo y menú*/
+
+}
+header{ 
+    position: sticky; /*Hace que el header se mantenga fijo en la parte superior de la pantalla al hacer scroll*/
+    top: 0; /*fija la posicion del header*/
+    border-bottom: 0.5px solid #005DA1; /*separación visual del header con el resto del contenido */
+    z-index: 1; /*Se usó porque la imagen de portada tapaba el header al hacer scroll - coloca al header por encima de otros elementos*/
+}
+.header1{ 
+    display: flex; /*lo usa principalmente para centrar el contenido*/
+    width: 100%; /*el 100% del ancho del viewport*/
+    height: auto; /*se adaptará al tamaño de la imagen (100px)*/
+    justify-content: center; /*hace que el contenido se centre de forma horizontal*/
+    align-items: center; /*centra de forma vertical el contenido*/
+    background-color: #FDF9F4; /*color de fondo que se identifica con la estetica de la marca*/
+}
+header img{ /*se define el tamaño fijo, tanto de alto como de ancho del logo de la empresa.*/
+    width: 100px;
+    height: 100px;
+}
+.header2{ /* el header 2 contiene el menú con enlaces + los iconos de redes sociales de la empresa. Todo redirecciona a una web diferente. Los iconos a cada red social, y el menú a la web correspondiente dentro de la página  */
+    display: flex; /*coloca al menú en una misma fila*/
+    justify-content: space-between; /*le da el estilo de menú - los iconos para un extremo y los enlaces al otro extremo*/
+    align-items: center; /*los alinea de forma vertical tanto los iconos como los enlaces*/
+    background-color: #005DA1;
+    padding: 10px 30px; /*padding para separar de los bordes el contenido*/
+
+}
+nav{ /*le da estilo al contenedor principal del menú y una transición suave para el responsive */
+    font-size: 14px; /*tamaño base que se le dio al texto del menú*/
+    font-weight: 500;
+    transition: top 0.5s ease; /*para que no sea brusco, se le agregó una transición al abrir y cerrar el menú (en max-width:500px*/
+}
+nav ul{ 
+    list-style: none; /*elimina las viñetas que vienen por defecto en las listas de html, para que no parezcan enlaces o listas*/
+    display: flex; /*alinea estos elementos de manera horizontal*/
+    gap: 30px; /*para que no estén tan juntos, se aplica un espaciado entre los 3 elementos*/
+} 
+li a{ /* aquí se tomaron solamente los enlaces - para que no tenga ningún estilo más el que le coloqué anteriormente*/
+    text-decoration: none; /*elimina el subrayado y el color por defecto de los enlaces*/
+    color: #FDF9F4; /*color predominante en el sitio web / contrasta con el header*/
+}
+.abrir, .cerrar{ /*se ocultaron los botones de abrir y cerrar, se activarán en el responsive (ma-widthx:550px)*/
+    display: none;
+}
+.social{ /* En el lado izquierdo de la pantalla podemos encontrar a los íconos sociales, que te llevan a las diferentes redes sociales de la empresa - se encuentran a la izquierda del menú. Se descargaron de fontawsome / link en el HTML*/
+    display: flex; /*los coloca en fila*/
+    align-items: center; /*los centra de forma vertical */
+    gap: 15px; /*para que no estén pegados el uno al otro se le aplicó un espaciado*/
+}
+.social i{ /* Se le cambió el color y se le puso un tamaño de fuente a los iconos descargados en Fontawsome para que estén acordes al diseño de la página*/
+    color: #FDF9F4;
+    font-size: 18px;
+}
+/*portada de cada sección de la página (tipo de producto)*/
+.portada1, .portada2, .portada3{
+    background-image: url(../img-servicios/portada1.webp); /*se inserta la imagen que elegí de portada para cada tipo de producto*/
+    width: 100%; /*ocupará todo el ancho de panralla del vp*/
+    height: 200px; /*se aplica un alto fijo para que se adapte al diseño de la web */
+    background-size: cover; /*hace que la imagen escale de manera que cubre el total del contenedor*/
+    background-position: center; /*centra la imagen pero dentro del div creado*/
+    overflow: hidden; /*oculta cualquier contenido que se pueda salir del contenedor*/
+    filter: opacity(0.9); /*algunas imagenes son oscuras y contrastan mucho con el fondo, por eso he elegido usar el filtro de opacidad en las imagenes*/
+}
+.portada2{
+    background-image: url(../img-servicios/portada2.webp); /*se inserta la imagen que elegí de portada para cada tipo de producto*/
+}
+.portada3{
+    background-image: url(../img-servicios/portada3.webp); /*se inserta la imagen que elegí de portada para cada tipo de producto*/
+}
+/*estilo de la caja de productos*/
+
+.titulo{ /*titulo de la animacion que define el tipo de producto, junto con la imagen de portada*/
+    background-color: transparent; /*elegí un background transparente para que se aprecie mejor la animación del titulo. Se han probado de diversos estilos y este fue el que más claro se ve. Si fuera de otro color, se perdería con el contraste de la imagen de portada */
+    overflow: hidden; /*previene desbordes del texto animado*/
+    padding: 10px 0; /*espaciado vertical*/
+    width: 100%; /*ocupa el ancho completo*/
+}
+.animado{
+    display: inline-block; /*eso ayudó a que no se rompa el flujo del texto*/
+    white-space: nowrap; /* aqui he tenido unos problemas al principio y, como no encontré respuesta tuve que preguntar al chat GPT, que me indicó que debía usar esta opción para impedir saltos de linea, para que funcione correctamente la animación que he hecho*/
+    animation: deslizar 25s linear infinite; /*desplazamiento continuo de forma horizontal*/
+    /*estilo del texto acorde al diseño del sitio web*/
+    font-size: 16px;
+    font-weight: 600;
+    color: #005DA1;
+    padding-left: 100%; /*hace que el texto se posicione fuera de pantalla para que la animación funcione correctamente*/
+}
+.productos{ /*todos los tipos de productos tendrán el mismo estilo en grid (4 productos)*/
+    display: grid; /*utilicé el grid para que la web esté organizada y se puedan ver cajas de productos, alineados y con el mismo estilo*/
+    min-height: 100vh; /*se extiende al menos una pantalla completa, luego se puede extender más, como en este caso*/
+    grid-template-columns: repeat(2, 1fr); /*como los productos son solamente 4, armé solamente un grid con 2 filas y 2 columnas */
+    gap: 50px; /*separación de 50px entre cada elemento*/
+    padding: 50px 50px 100px; /*pienso que puede ser un padding un poco grande, pero he intentado con numeros un poco más chicos y se veía todo muy junto */
+}
+.producto{
+    display: flex; /*organiza todos los elementos en forma de columna (uno debajo del otro)*/
+    flex-direction: column; /*se apilan de forma vertical*/
+    align-items: center;/*centra horizontalmente todos los elementos hijos de .producto*/
+    gap: 15px; /*separa el contenido (titulo, imagen y p) entre ellos */
+    background-color: #FDF9F4;
+    border-radius: 15px; /*se aplican bordes redondeados*/
+    padding: 20px; /*para que no esté pegado al borde, se aplica un padding de 20px*/
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /*sombra sutil*/
+    max-width: 100%; /*lo usé principa,mente para que los elementos no se desborden dentro del grid*/
+}
+.producto img{
+    width: 150px; /*tamaño fijo de la imagen dentro de la caja de producto - mantiene una consistencia entre los elementos*/
+    height: 150px;/*alto igual que el ancho para que sea el circulo perfecto, sino la imagen se vería mal*/
+    border-radius: 50%;/*convierte la imagen en un circulo*/
+    object-fit: cover;/*no todas las imagenes se ven bien sin esta propiedad - hace que se ajuste la imagen para cubrir sin ningun tipo de distorción*/
+    cursor: pointer;
+}
+.producto h3{
+    font-size: 20px; /*tamaño para destacar el titulo del producto*/
+    color: #005DA1; /*color acorde a la estetica del sitio web*/
+    padding-bottom: 10px;/*lo separa del texto*/
+    text-align: center; /*centra el titulo en el bloque de producto*/
+}
+.producto p{
+    font-size: 14px; /*tamaño de fuente ideal para este tipo de textos*/
+    text-align: justify; /*ordena el texto de forma justificada*/
+}
+
+/*footer / iconos sociales y politicas*/
+
+.contenedor-footer{ /* Es el contenedor principal del footer / se pone flex para que los elementos se distribuyan de forma horizontal y con space-between para que se alinen uno en cada extremo y los iconos en el medio*/
+    display: flex; /*distribución horizontal*/
+    width: 100%; /*todo el ancho del viewport*/
+    height: 50px; /*altura basada en el contenido*/
+    justify-content: space-between; /*deja el logo de un lado y los elementos uno en cada extramo*/
+    align-items: center; /*centra verticalmente el contenido y eso hace que este todo alineado*/
+    background-color: #005DA1;
+}
+.social2 { /*contenedor con iconos sociales / son los mismos que en el header 1 - se copió y pegó del header*/
+    display: flex; /*estarán en linea, uno al lado del otro*/
+    align-items: center; /*centra verticalmente los iconos*/
+    gap: 20px; /*espacio entre los elementos para que tengan una buena legibilidad*/
+}
+.social2 i{ /*aplica estilo a los iconos dentro del contenedor / estilo acorde a la web*/
+    font-size: 18px;
+    color: #FDF9F4;
+}
+.privacidad a{ /* es el estilo para el enlace de políticas de privacidad - estilo similar al header 1 */
+    font-size: 14px; 
+    text-decoration: none; /*se removió el subrayado tipico del enlace para que este acorde al diseño del proyecto*/
+    color: #FDF9F4; /*mismo color que los iconos*/
+    font-weight: 500; /*peso intermedio*/
+    margin-left: 30px; /*espacio izquierdo para que no quede al borde de la pantalla*/
+}
+.cookies a{ /* es el estilo para el enlace de políticas de cookies - estilo similar al header 1 */
+    font-size: 14px;/*mismo estilo que politicas de privacidad*/
+    text-decoration: none; /*se mantiene el estilo limpio*/
+    color: #FDF9F4;/*mismo color que los iconos y las politicas de privacidad*/
+    font-weight: 500;/*peso intermedio*/
+    margin-right: 30px;/*espacio derecho para que no quede al borde de la pantalla*/
+}
+ a:hover{ /* Hover general para cualquier enlace, que al pasar el cursor cambiará de color */
+    color: #F28B32; /*cambio de color a anaranjado como efecto hover - mejora la interactividad*/
+ }
+.caja { /*le dará estilo a la caja que contiene la imagen ampliada, creada en el HTML*/
+    display: none; /*será display none, para que no aparezca en pantalla hasta que js lo active*/
+    position: fixed; /*se fija para que permanezca en su lugar al hacer scroll*/
+    top: 0; /*lo posiciona en la parte de arriba de la pantalla*/
+    right: 0; /*lo posiciona al borde derecho de la pantalla*/
+    width: 100%; /*ocupa todo el ancho de pantalla*/
+    height: 100%; /*ocupa todo el alto de pantalla*/
+    background-color: rgba(0, 0, 0, 0.7); /*fondo semitransparente, se verá el background de la web*/
+    justify-content: center; /*cuando esté en flex, se verá el contenido de forma centrada de forma horizontal*/
+    align-items: center; /*cuando esté en flex, se verá el contenido de forma centrada de forma vertical*/
+    z-index: 1; /*se muestra por encima de todo el contenido */
+}
+.caja.visible{ /*se muestra cuando se active en javascript*/
+    display: flex; /*cambia de none a flex para mostrar el contenido de forma centrada en la pantalla*/
+}
+.img-ampliada{ /*imagen que se mostrará en la galeria*/
+    max-width: 80%; /*la imagen podrá ocupar hasta el 80% del ancho de la pantalla*/
+    max-height: 80%;/*puede ocupar hasta el 80% de alto*/
+    object-fit: contain; /*al ver que algunas imagenes se deformaban, decidí agregarle el objet-fit para contener las imagenes y que no se deformen*/
+}
+.cerrar-caja{ /*boton de cierre de la galeria, que se activará con JS*/
+    position: absolute; /*se posiciona asi con respecto a .caja*/
+    top: 10px; /*distancia de 10px desde el borde superior del contenedor*/
+    right: 10px; /*distancia de 10px del borde derecho del contenedor*/
+    font-size: 30px;/*tamaño grande para que no se pierda en el contenedor*/
+    color: #FDF9F4; /*color blanco para que contraste con el fondo*/
+    cursor: pointer; /*hace que el elemento sea clickeable al pasar el cursor*/
+}
+
+ @keyframes deslizar {
+    0% {
+        transform: translateX(0); /*posicion inicial - parte de su lugar original*/
+    }
+    100% {
+        transform: translateX(-100%); /*posicion final - el titulo se desplaza hacia la izquierda completamente / hace que este pueda moverse constantemente*/
+    }
+ }
+
+ @media screen and (max-width: 950px) { /* Media query de hasta 950px */
+
+    .header2{ 
+        gap: 10px; /*Esto hará que el header 2, que contiene el menú tenga una menor separación entre los elemnentos*/
+    }
+
+    /*Se aplicarán otros valores más bajos para el media query en el nav // tanto la fuente como los espacios serán menores que en el diseño hecho para desktop */
+
+    nav{
+        font-size: 13px; /*se reduce la fuente del menu para que esté acorde al tamaño de las pantallas*/
+    }
+    nav ul{ 
+        gap: 20px; /*menor espacio entre los items del menu*/
+        padding-right: 20px; /*menor padding del lado derecho*/
+    }
+    .social{ 
+        gap: 10px; /*menor espaciado entre los iconos sociales*/
+        padding-left: 20px; /*igual padding pero del lado izquierdo*/
+    }
+    .social i{ /*Tamaño de fuente de los iconos sociales del header2, que van achicándose a medida que disminuye el tamaño de la pantalla */
+        font-size: 16px; /*se achica el tamaño de los iconos para pantallas medianas*/
+    }
+    .portada{
+        width: 100%;
+        height: 150px; /*se reduce la altura de la imagen de portada para que s emuestre mas contenido en pantallas medianas */
+    }
+    .animado{
+        font-size: 15px;
+        font-weight: 500; /*se mantiene un peso mediano para que sea mas legible como 'titulo'*/
+    }
+    .productos{
+        gap: 30px;
+        padding: 40px 40px 70px; /*ajuste de margenes (menores) que el desktop*/
+    }
+    .producto{
+        display: flex; /*los elementos se alinean de forma horizontal*/
+        gap: 10px; /*espacio horizontal entre los elementos dentro del bloque*/
+        padding: 15px; /*espacio interno dentro del contenedor para que no queden pegados al borde*/
+
+    }
+    .producto img{
+        width: 120px; /*ancho fijo de la imagen*/
+        height: 120px; /*alto fijo*/
+        border-radius: 50%; /*convierte la imagen en un circulo perfecto*/
+        margin-bottom: 15px; /*espacio inferior para separar la imagen del parrafo*/
+    }
+    .producto h3{
+        font-size: 18px; /*se reduce el tamaño del titulo del producto*/
+    }
+    .producto p{
+        font-size: 13px; /*se reduce el tamaño del parrafo para que se adapte a las pantallas*/
+    }
+    .img-ampliada{ /*las dimensiones de las imagenes ampliadas reducirán a medida que se reduzca la pantalla*/
+        max-width: 65%;
+        max-height: 65%;
+        object-fit: contain;
+        transition: all 0.5s ease;
+    }
+    /*Se modifican tamaño de contenedor de footer, modificando margenes, tamaños de fuente y posicionamiento para que se adapten bien al responsive correspondiente */
+    .contenedor-footer {
+        height: auto; /*la altura se adapta al contenido*/
+        flex-wrap: wrap; /*Permitirá que los elementos pasen a otra línea nueva si no entran en la pantalla*/
+        padding: 10px 20px; /*espacio interno (arriba/abajo, derecha/izquierda)*/
+    }
+    /*se adaptan los tamaños a las pantallas medianas*/
+
+    .privacidad a, .cookies a{ 
+        font-size: 12px;
+        margin: 5px;
+    }
+    .social2 i{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 550px) { /*Lo utilizo para adaptar el diseño de mi web a telefonos móviles o pantallas pequeñas*/
+
+    /*El menú quedará de forma diferente y se aplicarán modificaciones para que el mismo sea 
+    de forma de 'hamburguesa' y tenga sus botones de abrir y cerrar con javascript*/
+
+.header2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    }
+
+nav {
+    position: fixed; /*Cuando la posición es fixed, hace que este nav esté fijo en la pantalla - se creará el menú interior cuando se abra el menú estilo 'hamburguesa'*/
+    top: -100vh; /*Se oculta el menú con el -100vh (viewporthight)*/
+    left: 0;
+    width: 100%; /*El menú abierto ocupará todo el ancho de la pantalla*/
+    height: 100vh; /*Y con esto hace que el menú se vea en toda la pantalla*/
+    background-color: #005DA1; /*Color que mantiene una unidad visual con el proyecto*/
+    display: flex; /*Se organizan los elementos uno abajo del otro*/
+    align-content: flex-start; /*se posiciona al principio del eje x */
+    align-items: flex-start; /*Se posiciona al principio del eje y*/
+    padding: 20px; /*Espacio interno*/
+    z-index: 1; /*Se coloca el menú por encima de otros elementos en la página, donde generalmente el z-index es 0*/
+}
+
+nav.desplegado{ /*Se creó una clase para js / cuando se aplique, el menú aparecerá desde la parte superior del vp */
+    top: 0;
+}
+nav ul{ /*estilo de la lista del menu*/
+    display: flex; 
+    width: 100%; 
+    flex-direction: column; /* Estarán en forma de columna, uno debajo del otro*/
+    gap: 35px; /*espacio vertical entre cada item*/
+    margin-top: 100px; /* Se aplica el margin-top para que el menú no quede pegado al borde de la pantalla*/
+}
+
+.social i{ /*Tamaño de fuente de los íconos sociales del header2 */
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social a{
+    text-decoration: none;
+}
+.abrir{ /*Se muestra el menú 'hamburguesa' que está oculto en el formato desktop*/
+    display: block; /*se muestra SOLO en pantallas chicas*/
+    width: 40px; /*es el tamaño del boton de hamburguesa*/
+    font-size: 24px; /*tamaño del icono del menu*/
+    background-color: transparent; /*no tiene fondo, solo el icono con otro color*/
+    padding: 2px; /*para que no quede pegado el icono y le de una forma*/
+    border-radius: 5px; /*no se ve en un principio, se vera directo en el hover*/
+    color: #FDF9F4;
+    border:none; /*sin borde*/
+    cursor: pointer; /*hace que el menu sea clickeable*/
+}
+.cerrar{ /*Se muestra el icono del boton x (cerrar), que estaba oculto en el css principal en la versión desktop*/
+    display: block; /*hace visible el boton en dispositivos moviles*/
+    background-color: transparent; /*decidí poner el fondo transparente porque he probado con otros estilos y este es el que más me convenció*/
+    color: #FDF9F4; /*color igual que el menú*/
+    font-size: 25px; /*es un tamaño acorde para que sea visible*/
+    cursor: pointer; /*Indica que es un elemento interactivo*/
+    border: none; /*venía un borde por defecto y se lo he quitado*/
+}
+.cerrar:hover{ /*Estilo que se le da para cuando pase el mouse por el icono de x, con colores y estilo que acompañan al proyecto*/
+    background-color: transparent;
+    color: #F28B32;
+}
+.abrir:hover{/*Estilo que se le da para cuando pase el mouse por el icono de 'hamburguesa', con colores y estilo que acompañan al del proyecto*/
+    background-color: #FDF9F4;
+    color:#005DA1;
+}
+.portada{
+    width: 100%; /*la imagen ocupa todo el ancho disponible de la pantalla*/
+    height: 120px; /*altura fija, reducida para móviles*/
+}
+.animado{
+    font-size: 14px;/*se reduce el tamaño para adaptarse a pantallas pequeñas*/
+    font-weight: 500; /*se reduce el tamaño para adaptarse a pantallas pequeñas*/
+}
+.productos{
+    display: grid; /*diseño en cuadricula*/
+    grid-template-columns: repeat(1, 1fr); /*se muestra solamente 1 columna, donde se apilarán uno debajo del otro*/
+    gap: 20px; /*espaciado vertical entre productos*/
+    padding: 30px 30px 50px; /*espacio interno de la caja (arriba, derecha/izquierda, abajo)*/
+}
+.producto{
+    display: flex; /*se organizan los elementos*/
+    gap: 10px; /*espacio reducido entre imagen y texto*/
+    padding: 10px; /*espacio interno general*/
+}
+.producto img{ /*las imagenes serán más pequeñas en pantallas maás chicas*/
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.producto h3{ /*titulo mas chico para pantallas pequeñas*/
+    font-size: 16px;
+}
+.producto p{ /*texto mas pequeño para ajustarlo a las pantallas*/
+    font-size: 12px;
+}
+.img-ampliada{ /*las dimensiones de las imagenes ampliadas reducirán a medida que se reduzca la pantalla*/
+    max-width: 50%;
+    max-height: 50%;
+    object-fit: contain;
+    transition: all 0.5s ease;
+}
+.contenedor-footer {
+    display: flex;
+    flex-wrap: wrap; /*Permite que los elementos pasen a otra linea si no entran en la misma*/
+    text-align: center; /*Centra el texto dentro del footer*/
+    flex-direction: column; /*Como la pantalla es chica, lo ideal es que los elementos queden uno debajo del otro y eso se hace con column*/
+    justify-content: center; /*centra verticalmente los elementos*/
+    align-items: center; /*Centra horizontalmente los elementos*/
+    height: auto; /*Se adapta al contenido*/
+    padding: 10px 20px; /*Lo utilicé para que no quede pegado el contenido entre sí */
+}
+/*se reduce el tamaños de los enlaces e iconos del footer para que se adapten a las pantallas iguales o menores a 550px*/
+.privacidad a, .cookies a { 
+    font-size: 12px;
+    margin: 5px;
+}
+.social2 i{
+    font-size: 14px;
+}
+}
