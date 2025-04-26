@@ -1,42 +1,41 @@
 /*estilo principal*/
-
 *{/*se eliminan los márgenes y padding por defecto*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;  /*usé el border-box para evitar que los elementos se desborden del viewport o del contenedor - ayuda al responsive*/
 }
-body{   
-    font-family: 'poppins', sans-serif; /*se agregó la fuente principal (en html - descargué la fuente 'poppins' en google fonts */
+body{   /*el estilo del body se usó para que los elementos queden uno debajo del otro y para que toda la web tenga la misma fuente*/
+    font-family: 'poppins', sans-serif; 
     width: 100%;
-    min-height: 100vh; /*min height para que entre todo el contenido*/
-    display: flex; /*Se usó display:flex con flex-direction:column para que los elementos vayan desde el eje principal hasta el final de la página, uno bajo el otro*/
+    min-height: 100vh; 
+    display: flex;
     flex-direction: column;
     justify-content: center;
-
 /*header: logo y menú*/
-
 }
 header{ 
-    position: sticky; /*el header se encuentra en la parte superior de la pantalla - contiene header 1 y header 2. Estará en posición sticky - que significa que el menú seguirá el scroll y aparecerá todo el tiempo en pantalla. */
+    position: sticky; /*se compone por el header 1 y header 2. Estará en posición sticky - que significa que el menú seguirá el scroll y aparecerá todo el tiempo en pantalla. */
     top: 0; /*el top:0 indica que va a quedar pegado al top del viewport - sin esto el position sticky no funcionaría*/
     border-bottom: 0.5px solid #005DA1; /*el borde en la parte inferior del header es para distinguirlo una vez que se scrolea*/
+    z-index: 2;
 }
+/*este primer header tendrá solamente el logo de la empresa*/
 .header1{ /* el header se dividió en 2: Esta primera parte contendrá, en el medio del div, el logo de la empresa - donde el div ocupa el 100% del ancho, y un centrado tanto en el eje x como en el y. El background color elegido es parte de la colorimetría que eligió la empresa*/
     display: flex; /*se usa para poder alinear los elementos dentro del header1*/
-    width: 100%; /* el div ocupa todo el ancho de la pantalla*/
+    width: 100%; 
     height: auto; /*se adaptará al tamaño de la imagen (100px)*/
     justify-content: center; /*centra el contenido en el eje x*/
     align-items: center; /*centra el contenido en el eje y*/
-    background-color: #FDF9F4; /*aplica el color blanco, caracteristico del proyecto*/
+    background-color: #FDF9F4;
 }
 header img{ /*se define el tamaño fijo, tanto de alto como de ancho del logo de la empresa.*/
     width: 100px;
     height: 100px;
 }
-.header2{ /* el header 2 contiene el menú con enlaces + los iconos de redes sociales de la empresa. Todo redirecciona a una web diferente. Los iconos a cada red social, y el menú a la web correspondiente dentro de la página*/
-    display: flex; /*Se utilizó el display:flex para que los elementos vayan uno al lado del otro*/
-    justify-content: space-between; /*Es para que se ubiquen en los dos extremos*/
-    align-items: center; /*posiciona al centro en el eje y*/
+.header2{ /* el header 2 contiene el menú con enlaces + los iconos de redes sociales de la empresa. Todo redirecciona a una web diferente. Los iconos a cada red social, y el menú a la web correspondiente dentro de la página. Es el estilo de un menú básiico, donde los elementos están uno en cada extremo, con enlaces que van directo a las distintas partes de la web*/
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
     background-color: #FDF9F4;
     padding-bottom: 10px; /*padding para que no quede pegado al borde del div*/
 }
@@ -45,11 +44,11 @@ nav{ /*le da estilo al contenedor principal del menú y una transición suave pa
     font-weight: 500;
     transition: top 1s ease; /*transition suave de 1 segundo, que hace efecto cuando se muestra o cierra el menu en responsive*/
 }
-nav ul{ 
-    display: flex; /*alinea los elementos de forma horizontal*/
+nav ul{ /*lista del menú (inicio, servicios y contacto) - se le dio un estilo con colores de la marca, quitandole el estilo default*/
+    display: flex; 
     padding-right: 30px; /*corresponde al menú - se le agregó un 30px de padding al lado derecho para que no quede pegado al borde*/
-    list-style: none; /*elimina el estilo de lista*/
-    gap: 30px; /*espacio entre cada item de la lista del menu*/
+    list-style: none; 
+    gap: 30px; 
 } 
 li a{ /* aquí se tomaron solamente los enlaces - para que no tenga ningún estilo más el que le coloqué anteriormente*/
     text-decoration: none;
@@ -67,6 +66,10 @@ li a{ /* aquí se tomaron solamente los enlaces - para que no tenga ningún esti
 .social i{ /* Se le cambió el color y se le puso un tamaño de fuente a los iconos descargados en Fontawsome para que estén acordes al diseño de la página*/
     color: #005DA1;
     font-size: 18px;
+    transition: transform 0.5s ease;
+}
+.social i:hover{
+    transform: scale(1.2);
 }
 
 /*portada de la página de inicio*/
@@ -75,14 +78,13 @@ li a{ /* aquí se tomaron solamente los enlaces - para que no tenga ningún esti
     background-image: url(../Portada/portada5.jpg); /*es una imagen descargada de Unsplash - elegida como portada del sitio web en inicio*/
     width: 100%; /*ocupa todo el ancho disponible de pantalla*/
     height: 600px;/*altura fija de 600px para el desktop*/
-    display: flex; /*facilita la alineacion del contenido dentro de la portada*/
-    flex-direction: column; /*organiza todo de abajo para arriba*/
+    display: flex; 
+    flex-direction: column;
     justify-content: center;
-    align-items: center; /*centra los elementos en el eje y*/
-   /* padding: 40px; /*agrega un espacio entre el borde y los elementos internos de la portada. Se agregó porque quedaba muy pegado al borde*/
+    align-items: center; 
     background-size: cover; /*escala la imagen para cubrir sin deformarse*/
     background-position: center top; /*posiciona la imagen al centro de forma horizontal y alineada hacia arriba de forma vertical*/
-    text-align: center; /*hace que el texto se alinea al centro*/
+    text-align: center; 
 }
 .portada h1{ /* Es el título principal de la portada / es un texto que está en el instagram de la empresa*/
     width: 100%; /*Se le da todo el ancho de la pantalla, con la fuente y el tamaño correspondiente*/
@@ -90,6 +92,7 @@ li a{ /* aquí se tomaron solamente los enlaces - para que no tenga ningún esti
     font-size: 40px;
     text-shadow: #00447A 1px 1px; /* Se le agregó una sombra al texto para que en el javascript destaque el color y se pueda ver sobre la imagen de fondo - se intentó igualmente sin la sombra y no quedaba bien*/
     padding-bottom: 50px;
+    animation: mov-titulo 5s ease-in ;
 }
 .botones{ /* Contenedor de botones en la portada de la web - se le da un diseño adaptabla al responsive*/
     display: flex; /*facilita la alineacion y la organizacion de los elementos que estan dentro de los botones*/
@@ -99,7 +102,7 @@ li a{ /* aquí se tomaron solamente los enlaces - para que no tenga ningún esti
     flex-wrap: wrap; /*cuando se queda sin espacio, quedarán uno debajo del otro*/
 }
  .boton{ /* El estilo que se le aplicó a los botones - se optó por algo sencillo, con los colores principales que propone la empresa. */
-    background-color: #005DA1; /*paleta de colores de la marca*/
+    background-color: rgba(0, 93, 161, 0.9); /*paleta de colores de la marca*/
     border: none; /*elimina los bordes por default*/
     padding: 16px 14px; /*espacio interior de los botones*/
     font-size: 16px;
@@ -108,10 +111,12 @@ li a{ /* aquí se tomaron solamente los enlaces - para que no tenga ningún esti
     cursor: pointer; /*hace que al pasar el cursor sea 'clickeable'*/
     border-radius: 15px; /*crea un borde un poco más moderno, sin caer en el botón por default*/
     text-decoration: none; /*se elimina el estilo de enlace (subrayado y color)*/
+    transition: transform 0.5 ease;
  }
- .boton:hover{ /* Para crear un cambio visual, cada vez que pase el cursor por los botones, el color se oscurecerá - con una trnasición de 0.5s */
+ .boton:hover{ /* Para crear un cambio visual, cada vez que pase el cursor por los botones, el color se oscurecerá y se agrandará - con una trnasición de 0.5s */
     color: #F28B32;
     transition: color 0.5s ease;
+    transform: scale(1.1);
  }
 
  /*cuerpo de la página con productos y presentación*/
@@ -143,17 +148,36 @@ h2.titulo1 { /* 'Nuestros servicios' - Titulo principal de la sección de produc
     display: flex; /*hace que los elementos dentro del cuadro esten mejores estructurados y sea mas fácil estilizarlos*/
     background-color: #FDF9F4;
     border-radius: 15px;
-    overflow: hidden; /*Evita que el contenido sobresalga de la pantalla*/
     text-align: center; /*Centra todos los elementos en el cuadro*/
     flex-direction: column; /*Hace que la distribución del contenido sea de forma vertical*/
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08); /*se le agrega una sombra para darle un efecto de caja y que tenga un contraste con el fondo*/
     padding: 20px; /*espacio interno*/
+    transition: transform 0.3s ease, box-shadow 0.3 ease;
+    cursor: pointer;
+}
+.cuadro:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1; /*se tapaba con el menú porque está en position sticky - cambié el z-index del menú a 2 y el del .cuadro a 1*/
+}
+.circulo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .circulo img{ /* Imagen del producto/servicio destacado - se fija el ancho y el alto, así como también el radio para que sea un círculo. */
     width: 120px;
     height: 120px;
     border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 20px;
+}
+.circulo.ampliada img{
+    height: 250px;
+    width: 250px;
+    border-radius: 10px;
 }
 .cuadro h3{ /* Nombre del producto - estilo y posicionamiento del mismo */
     color: #005DA1;
@@ -168,6 +192,9 @@ h2.titulo1 { /* 'Nuestros servicios' - Titulo principal de la sección de produc
     text-align: center;
     padding: 0 10px;
 }
+.cuadro.oculto h3, .cuadro.oculto p{
+    display:none;
+}
 h2.titulo2 { /* 'Nuestros servicios' - Titulo principal de la sección de productos. Se detalla alineación, posicionamiento y estilo del título de la sección: ocupará todo el ancho del grid */
     font-family: 'poppins', sans-serif;
     display: flex; 
@@ -177,6 +204,10 @@ h2.titulo2 { /* 'Nuestros servicios' - Titulo principal de la sección de produc
     font-size: 40px; 
     font-weight: 800; /*Como es un titulo, hay que agregarle peso a la fuente*/
     margin-bottom: 20px;
+    color: #005DA1;
+}
+.titulo2 a{
+    text-decoration: none;
     color: #005DA1;
 }
 .nosotros{ /*Es la segunda sección de la página - "Quienes somos, la estética es igual a la sección anterior, para tener una coherencia en el estilo. Se establece un ancho y un estilo para el div*/
@@ -197,7 +228,6 @@ h2.titulo2 { /* 'Nuestros servicios' - Titulo principal de la sección de produc
     text-align: center; /*lo centra con respecto al texto*/
     font-weight: 700; /*resalta esta parte del texto*/
 }
-
 .somos p{ /*espaciado entre distintos p - con padding de 30px para separar elementos*/
     padding-bottom: 30px;
 }
@@ -214,10 +244,13 @@ h2.titulo2 { /* 'Nuestros servicios' - Titulo principal de la sección de produc
     align-items: center;
     gap: 20px;
 }
-
 .social2 i{ /*se estila a los iconos sociales del header 2 - son iguales a los del header 1*/
     font-size: 18px;
     color: #FDF9F4;
+    transition: transform 0.5 ease;
+}
+.social2 i:hover{
+    transform: scale(1.2);
 }
 .privacidad a{ /* es el estilo para el enlace de políticas de privacidad - estilo similar al header 1 */
     font-size: 14px;
@@ -238,6 +271,14 @@ h2.titulo2 { /* 'Nuestros servicios' - Titulo principal de la sección de produc
  }
 
 /* media querys - responsive 950px */
+@keyframes mov-titulo {
+    0% {
+    transform: translateX(-100%); /*posicion inicial - parte de su lugar original*/
+    }
+    100% {
+    transform: translateX(0); /*posicion final - el titulo se desplaza hacia la izquierda completamente / hace que este pueda moverse constantemente*/
+    }
+ }
 
 @media screen and (max-width: 950px) { /* Media query de hasta 950px */
 
@@ -327,32 +368,61 @@ h2.titulo2 { /* 'Nuestros servicios' - Titulo principal de la sección de produc
     }
     nav {
         position: fixed; /*Cuando la posición es fixed, hace que este nav esté fijo en la pantalla - se creará el menú interior cuando se abra el menú estilo 'hamburguesa'*/
-        top: -100vh; /*Se oculta el menú con el -100vh (viewporthight)*/
-        left: 0;
+        top: 146px; 
+        left: -100%;
         width: 100%; /*El menú abierto ocupará todo el ancho de la pantalla*/
         height: 100vh; /*Y con esto hace que el menú se vea en toda la pantalla*/
-        background-color: #005DA1; /*Color que mantiene una unidad visual con el proyecto*/
+        background-color: rgb(0, 93, 161); /*Color que mantiene una unidad visual con el proyecto*/
         display: flex; /*Se organizan los elementos uno abajo del otro*/
-        align-content: flex-start; /*se posiciona al principio del eje x */
         align-items: flex-start; /*Se posiciona al principio del eje y*/
         padding: 20px; /*Espacio interno*/
         z-index: 1; /*Se coloca el menú por encima de otros elementos en la página, donde generalmente el z-index es 0*/
-        transition: top 0.3s ease-in-out;
+        transition: left 0.5s ease;
     }
     
     nav.desplegado{ /*Se creó una clase para js / cuando se aplique, el menú aparecerá desde la parte superior del vp */
-        top: 0;
+        left: 0;
     }
     nav ul { /*estilo de la lista del menu*/
         display: flex; 
         width: 100%;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        transform: translateY(-100px);
         flex-direction: column; /* Estarán en forma de columna, uno debajo del otro*/
-        gap: 35px; /*espacio vertical entre cada item*/
+        gap: 40px; /*espacio vertical entre cada item*/
+        align-items: center;
         margin-top: 100px; /* Se aplica el margin-top para que el menú no quede pegado al borde de la pantalla*/
+        text-align: center;
     }
+    /*para agregarle un efecto diferente al menú desplegable, lo que hice fue agregar transiciones al menú de enlaces, para que ingresen de a uno y demorando su entrada */
+    
     nav ul a{ /*color de los enlaces del menú desplegable*/
         color: #FDF9F4;
     }
+    nav ul li { /*arranca invisible, con opacity 0, fuera de la pantalla*/
+        opacity: 0;
+        transform: translateX(-100px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    nav.desplegado ul{ /*para que cuando se abra el menú pueda ingresar con una opacidad 1*/
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    nav.desplegado ul li{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    /*cada uno de los enlaces del menú ingresará individualmente con una diferencia de 0.2s, para hacerlo más  dinámico para el usuario*/
+    nav.desplegado ul li:nth-child(1){
+        transition-delay: 0.2s;
+    }
+    nav.desplegado ul li:nth-child(2){
+        transition-delay: 0.4s;
+    }
+    nav.desplegado ul li:nth-child(3){
+        transition-delay: 0.6s;
+    }    
 
     .abrir{ /*Se muestra el menú 'hamburguesa' que está oculto en el formato desktop*/
         display: block; /*se muestra SOLO en pantallas chicas*/
@@ -367,7 +437,10 @@ h2.titulo2 { /* 'Nuestros servicios' - Titulo principal de la sección de produc
         margin-right: 20px;
     }
     .cerrar{ /*Se muestra el icono del boton x (cerrar), que estaba oculto en el css principal en la versión desktop*/
-        display: block; /*hace visible el boton en dispositivos moviles*/
+        display: block;
+        position: absolute;
+        right: 50%;
+        z-index: 1;
         background-color: transparent; /*decidí poner el fondo transparente porque he probado con otros estilos y este es el que más me convenció*/
         color: #FDF9F4; /*color igual que el menú*/
         font-size: 25px; /*es un tamaño acorde para que sea visible*/

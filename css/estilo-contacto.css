@@ -9,7 +9,7 @@ body{
     font-family: 'poppins', sans-serif; /* Define la fuente principal para mantener una coherencia en el proyecto*/
     width: 100%; /*El ancho 100% asegura que el body ocupe toda la pantalla del vp */
     min-height: 100vh; /*min-height para que entre todo el contenido y llene al menos la altura del viewport*/
-    display: flex; /*alinea el contenido general del body*/
+    display: flex; 
     flex-direction: column; /*el contenido se organizará de arriba para abajo*/
 
 /*header: logo y menú*/
@@ -38,7 +38,6 @@ header img{ /*se define el tamaño fijo, tanto de alto como de ancho del logo de
     align-items: center; /*los alinea de forma vertical tanto los iconos como los enlaces*/
     background-color: #005DA1;
     padding: 10px 30px; /*padding para separar de los bordes el contenido*/
-
 }
 nav{ /*le da estilo al contenedor principal del menú y una transición suave para el responsive */
     font-size: 14px; /*tamaño base que se le dio al texto del menú*/
@@ -65,6 +64,10 @@ li a{ /* aquí se tomaron solamente los enlaces - para que no tenga ningún esti
 .social i{ /* Se le cambió el color y se le puso un tamaño de fuente a los iconos descargados en Fontawsome para que estén acordes al diseño de la página*/
     color: #FDF9F4;
     font-size: 18px;
+    transition: transform 0.5s ease;
+}
+.social i:hover{
+    transform: scale(1.2);
 }
 .contacto{
     min-height: 650px; /*altura minima para el contenedor del formulario*/
@@ -74,7 +77,6 @@ li a{ /* aquí se tomaron solamente los enlaces - para que no tenga ningún esti
     align-items: center; /*se alinean de forma horizontal*/
     padding-top: 100px; /*si elegía justify-content: center quedaba un espacio considerable al inicio y no quedaba bien, por eso he optado por ponerlo al flex-start y agregarle un padding arriba */
     gap: 15px;/*espaciado entre los elemnetos dentro del div*/
-
 }
 .titulo-form h1{ /*estilo del titulo : Contactanos! del formulario / estilo similar a los titulos en los otros enlaces del sitio web*/
     font-size: 40px;
@@ -139,6 +141,10 @@ input[name=enviar]{ /*botón de enviar el formulario, el estilo es acorde al de 
 .social2 i{ /*aplica estilo a los iconos dentro del contenedor / estilo acorde a la web*/
     font-size: 18px;
     color: #FDF9F4;
+    transition: transform 0.5s ease;
+}
+.social2 i:hover{
+    transform: scale(1.2);
 }
 .privacidad a{ /* es el estilo para el enlace de políticas de privacidad - estilo similar al header 1 */
     font-size: 14px; 
@@ -158,10 +164,7 @@ input[name=enviar]{ /*botón de enviar el formulario, el estilo es acorde al de 
     color: #F28B32; /*cambio de color a anaranjado como efecto hover - mejora la interactividad*/
  }
 
-
-
  @media screen and (max-width: 950px) { /* Media query de hasta 950px */
-
     .header2{ 
         gap: 10px; /*Esto hará que el header 2, que contiene el menú tenga una menor separación entre los elemnentos*/
     }
@@ -213,98 +216,154 @@ input[name=enviar]{ /*botón de enviar el formulario, el estilo es acorde al de 
 @media screen and (max-width: 550px) { /*Lo utilizo para adaptar el diseño de mi web a telefonos móviles o pantallas pequeñas*/
 
     /*El menú quedará de forma diferente y se aplicarán modificaciones para que el mismo sea de forma de 'hamburguesa' y tenga sus botones de abrir y cerrar con javascript*/
-.header2{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-nav {
-    position: fixed; /*Cuando la posición es fixed, hace que este nav esté fijo en la pantalla - se creará el menú interior cuando se abra el menú estilo 'hamburguesa'*/
-    top: -100vh; /*Se oculta el menú con el -100vh (viewporthight)*/
-    left: 0;
-    width: 100%; /*El menú abierto ocupará todo el ancho de la pantalla*/
-    height: 100vh; /*Y con esto hace que el menú se vea en toda la pantalla*/
-    background-color: #005DA1; /*Color que mantiene una unidad visual con el proyecto*/
-    display: flex; /*Se organizan los elementos uno abajo del otro*/
-    align-content: flex-start; /*se posiciona al principio del eje x */
-    align-items: flex-start; /*Se posiciona al principio del eje y*/
-    padding: 20px; /*Espacio interno*/
-    z-index: 1; /*Se coloca el menú por encima de otros elementos en la página, donde generalmente el z-index es 0*/
-}
+    .header2{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    nav {
+        position: fixed; /*Cuando la posición es fixed, hace que este nav esté fijo en la pantalla - se creará el menú interior cuando se abra el menú estilo 'hamburguesa'*/
+        top: 146px; 
+        left: -100%;
+        width: 100%; /*El menú abierto ocupará todo el ancho de la pantalla*/
+        height: 100vh; /*Y con esto hace que el menú se vea en toda la pantalla*/
+        background-color: rgb(0, 93, 161); /*Color que mantiene una unidad visual con el proyecto*/
+        display: flex; /*Se organizan los elementos uno abajo del otro*/
+        align-items: flex-start; /*Se posiciona al principio del eje y*/
+        padding: 20px; /*Espacio interno*/
+        z-index: 1; /*Se coloca el menú por encima de otros elementos en la página, donde generalmente el z-index es 0*/
+        transition: left 0.5s ease;
+    }
 
-nav.desplegado{ /*Se creó una clase para js / cuando se aplique, el menú aparecerá desde la parte superior del vp */
-    top: 0;
-}
-nav ul{ /*estilo de la lista del menu*/
-    display: flex; 
-    width: 100%; 
-    flex-direction: column; /* Estarán en forma de columna, uno debajo del otro*/
-    gap: 35px; /*espacio vertical entre cada item*/
-    margin-top: 100px; /* Se aplica el margin-top para que el menú no quede pegado al borde de la pantalla*/
-}
+    nav.desplegado{ /*Se creó una clase para js / cuando se aplique, el menú aparecerá desde la parte superior del vp */
+        left: 0;
+    }
+    nav ul { /*estilo de la lista del menu*/
+        display: flex; 
+        width: 100%;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        transform: translateY(-100px);
+        flex-direction: column; /* Estarán en forma de columna, uno debajo del otro*/
+        gap: 40px; /*espacio vertical entre cada item*/
+        align-items: center;
+        margin-top: 100px; /* Se aplica el margin-top para que el menú no quede pegado al borde de la pantalla*/
+        text-align: center;
+    }
+    /*para agregarle un efecto diferente al menú desplegable, lo que hice fue agregar transiciones al menú de enlaces, para que ingresen de a uno y demorando su entrada */
 
-.social i{ /*Tamaño de fuente de los íconos sociales del header2 */
-    font-size: 14px;
+    nav ul a{ /*color de los enlaces del menú desplegable*/
+        color: #FDF9F4;
+    }
+    nav ul li { /*arranca invisible, con opacity 0, fuera de la pantalla*/
+        opacity: 0;
+        transform: translateX(-100px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    nav.desplegado ul{ /*para que cuando se abra el menú pueda ingresar con una opacidad 1*/
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-}
-.social a{
-    text-decoration: none;
-}
-.abrir{ /*Se muestra el menú 'hamburguesa' que está oculto en el formato desktop*/
-    display: block; /*se muestra SOLO en pantallas chicas*/
-    width: 40px; /*es el tamaño del boton de hamburguesa*/
-    font-size: 24px; /*tamaño del icono del menu*/
-    background-color: transparent; /*no tiene fondo, solo el icono con otro color*/
-    padding: 2px; /*para que no quede pegado el icono y le de una forma*/
-    border-radius: 5px; /*no se ve en un principio, se vera directo en el hover*/
-    color: #FDF9F4;
-    border:none; /*sin borde*/
-    cursor: pointer; /*hace que el menu sea clickeable*/
-}
-.cerrar{ /*Se muestra el icono del boton x (cerrar), que estaba oculto en el css principal en la versión desktop*/
-    display: block; /*hace visible el boton en dispositivos moviles*/
-    background-color: transparent; /*decidí poner el fondo transparente porque he probado con otros estilos y este es el que más me convenció*/
-    color: #FDF9F4; /*color igual que el menú*/
-    font-size: 25px; /*es un tamaño acorde para que sea visible*/
-    cursor: pointer; /*Indica que es un elemento interactivo*/
-    border: none; /*venía un borde por defecto y se lo he quitado*/
-}
-.cerrar:hover{ /*Estilo que se le da para cuando pase el mouse por el icono de x, con colores y estilo que acompañan al proyecto*/
-    background-color: transparent;
-    color: #F28B32;
-}
+    nav.desplegado ul li{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    /*cada uno de los enlaces del menú ingresará individualmente con una diferencia de 0.2s, para hacerlo más  dinámico para el usuario*/
+    nav.desplegado ul li:nth-child(1){
+        transition-delay: 0.2s;
+    }
+    nav.desplegado ul li:nth-child(2){
+        transition-delay: 0.4s;
+    }
+    nav.desplegado ul li:nth-child(3){
+        transition-delay: 0.6s;
+    }
 
-.abrir:hover{/*Estilo que se le da para cuando pase el mouse por el icono de 'hamburguesa', con colores y estilo que acompañan al del proyecto*/
-    background-color: #FDF9F4;
-    color:#005DA1;
-}
+    .abrir{ /*Se muestra el menú 'hamburguesa' que está oculto en el formato desktop*/
+        display: block; /*se muestra SOLO en pantallas chicas*/
+        width: 40px; /*es el tamaño del boton de hamburguesa*/
+        font-size: 24px; /*tamaño del icono del menu*/
+        background-color: transparent; /*no tiene fondo, solo el icono con otro color*/
+        padding: 2px; /*para que no quede pegado el icono y le de una forma*/
+        border-radius: 5px; /*no se ve en un principio, se vera directo en el hover*/
+        color: #005DA1;
+        border:none; /*sin borde*/
+        cursor: pointer; /*hace que el menu sea clickeable*/
+        margin-right: 20px;
+    }
+    .cerrar{ /*Se muestra el icono del boton x (cerrar), que estaba oculto en el css principal en la versión desktop*/
+        display: block;
+        position: absolute;
+        right: 50%;
+        z-index: 1;
+        background-color: transparent; /*decidí poner el fondo transparente porque he probado con otros estilos y este es el que más me convenció*/
+        color: #FDF9F4; /*color igual que el menú*/
+        font-size: 25px; /*es un tamaño acorde para que sea visible*/
+        cursor: pointer; /*Indica que es un elemento interactivo*/
+        border: none; /*venía un borde por defecto y se lo he quitado*/
+    }
+    .social i{ /*Tamaño de fuente de los íconos sociales del header2 */
+        font-size: 14px;
 
-.titulo-form h1{ /*estilo del titulo para responsive 550px*/
-    font-weight: 600; /*menor peso de fuente*/
-    font-size: 30px; /*se disminuyó el tamaño de la fuente*/
-}
-.contacto form{ /*se cambia el estilo del formulario en el media query, para que sea adaptable a pantallas más chicas*/
-    display: flex; /*se cambia de grid a flex para que pueda tener dirección column*/
-    flex-direction: column; /*estarán uno debajo del otro y será más fácil para el usuario completar el formulario*/
-    gap: 20px; /*un espaciado adecuado para que no estén muy pegados entre ellos */
-    transition: 0.5s ease; /*para que la transicion entre los diferentes tamaños no sea tan brusca, se agregó un transition*/
-}
-.contenedor-footer {
-    display: flex;
-    flex-wrap: wrap; /*Permite que los elementos pasen a otra linea si no entran en la misma*/
-    text-align: center; /*Centra el texto dentro del footer*/
-    flex-direction: column; /*Como la pantalla es chica, lo ideal es que los elementos queden uno debajo del otro y eso se hace con column*/
-    justify-content: center; /*centra verticalmente los elementos*/
-    align-items: center; /*Centra horizontalmente los elementos*/
-    height: auto; /*Se adapta al contenido*/
-    padding: 10px 20px; /*Lo utilicé para que no quede pegado el contenido entre sí */
-}
-/*se reduce el tamaños de los enlaces e iconos del footer para que se adapten a las pantallas iguales o menores a 550px*/
-.privacidad a, .cookies a { 
-    font-size: 12px;
-    margin: 5px;
-}
-.social2 i{
-    font-size: 14px;
-}
-}
+    }
+    .social a{
+        text-decoration: none;
+    }
+    .abrir{ /*Se muestra el menú 'hamburguesa' que está oculto en el formato desktop*/
+        display: block; /*se muestra SOLO en pantallas chicas*/
+        width: 40px; /*es el tamaño del boton de hamburguesa*/
+        font-size: 24px; /*tamaño del icono del menu*/
+        background-color: transparent; /*no tiene fondo, solo el icono con otro color*/
+        padding: 2px; /*para que no quede pegado el icono y le de una forma*/
+        border-radius: 5px; /*no se ve en un principio, se vera directo en el hover*/
+        color: #FDF9F4;
+        border:none; /*sin borde*/
+        cursor: pointer; /*hace que el menu sea clickeable*/
+    }
+    .cerrar{ /*Se muestra el icono del boton x (cerrar), que estaba oculto en el css principal en la versión desktop*/
+        display: block; /*hace visible el boton en dispositivos moviles*/
+        background-color: transparent; /*decidí poner el fondo transparente porque he probado con otros estilos y este es el que más me convenció*/
+        color: #FDF9F4; /*color igual que el menú*/
+        font-size: 25px; /*es un tamaño acorde para que sea visible*/
+        cursor: pointer; /*Indica que es un elemento interactivo*/
+        border: none; /*venía un borde por defecto y se lo he quitado*/
+    }
+    .cerrar:hover{ /*Estilo que se le da para cuando pase el mouse por el icono de x, con colores y estilo que acompañan al proyecto*/
+        background-color: transparent;
+        color: #F28B32;
+    }
+
+    .abrir:hover{/*Estilo que se le da para cuando pase el mouse por el icono de 'hamburguesa', con colores y estilo que acompañan al del proyecto*/
+        background-color: #FDF9F4;
+        color:#005DA1;
+    }
+
+    .titulo-form h1{ /*estilo del titulo para responsive 550px*/
+        font-weight: 600; /*menor peso de fuente*/
+        font-size: 30px; /*se disminuyó el tamaño de la fuente*/
+    }
+    .contacto form{ /*se cambia el estilo del formulario en el media query, para que sea adaptable a pantallas más chicas*/
+        display: flex; /*se cambia de grid a flex para que pueda tener dirección column*/
+        flex-direction: column; /*estarán uno debajo del otro y será más fácil para el usuario completar el formulario*/
+        gap: 20px; /*un espaciado adecuado para que no estén muy pegados entre ellos */
+        transition: 0.5s ease; /*para que la transicion entre los diferentes tamaños no sea tan brusca, se agregó un transition*/
+    }
+    .contenedor-footer {
+        display: flex;
+        flex-wrap: wrap; /*Permite que los elementos pasen a otra linea si no entran en la misma*/
+        text-align: center; /*Centra el texto dentro del footer*/
+        flex-direction: column; /*Como la pantalla es chica, lo ideal es que los elementos queden uno debajo del otro y eso se hace con column*/
+        justify-content: center; /*centra verticalmente los elementos*/
+        align-items: center; /*Centra horizontalmente los elementos*/
+        height: auto; /*Se adapta al contenido*/
+        padding: 10px 20px; /*Lo utilicé para que no quede pegado el contenido entre sí */
+    }
+    /*se reduce el tamaños de los enlaces e iconos del footer para que se adapten a las pantallas iguales o menores a 550px*/
+    .privacidad a, .cookies a { 
+        font-size: 12px;
+        margin: 5px;
+    }
+    .social2 i{
+        font-size: 14px;
+    }
+    }

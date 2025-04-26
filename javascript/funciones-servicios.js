@@ -40,6 +40,7 @@ imagenes.forEach(imagen => { //recorre todas las imagenes y agrega el evento a c
 });
 cerrarCaja.addEventListener("click", () => { //evento para cerrar la galeria con la X
     caja.classList.remove("visible");
+    
 });
 
 caja.addEventListener("click", evento => { //esto me ha costado hacerlo. Al principio lo hacía sin el target pero no funcionaba. Como realmente quería que este evento suceda, busqué tanto en W3Schools y Chatgpt que me han dado la solución y la explicación de 'target'. Esto permite que pueda salir de la galería clickeando fuera de la imagen. 

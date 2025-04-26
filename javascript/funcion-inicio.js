@@ -30,3 +30,35 @@ abrir.addEventListener("click", () => {
 cerrar.addEventListener("click", () => {
     nav.classList.remove("desplegado");
 });
+
+function expandirImg(cuadro) {
+    // Seleccionar el elemento .circulo dentro del .cuadro
+    const circulo = cuadro.querySelector(".circulo");
+
+    // Asegúrate de que el circulo existe
+    if (circulo) {
+        circulo.classList.toggle("ampliada"); // Cambiar tamaño de la imagen
+    }
+
+    // Alternar la clase 'oculto' en el cuadro para ocultar texto
+    cuadro.classList.toggle("oculto");
+}
+
+// Agregar evento de clic a cada cuadro
+document.querySelectorAll('.cuadro').forEach(cuadro => {
+    cuadro.addEventListener('click', () => expandirImg(cuadro));
+});
+//es una funcion que toma como argumento al cuadro - en este caso lo que quiero hacer es que, cada vez que se haga click en el cuadro, se agrande la imagen pero no como una 'galeria modal', sino dentro del mismo cuadro. Se agregaron dos propiedades en css .ampliada y .oculta -> la primera es para ampliar la imagen, la segunda es para eliminar el contenido que no sea la imagen. Se uso el forEach para que se replique en todos los cuadros
+function agrandarImg(cuadro) {
+    const img = cuadro.querySelectorAll(".circulo");
+
+    if(img) {
+        img.classList.toggle("ampliada");
+        cuadro.classList.toggle("oculto");
+        
+    }
+    document.querySelectorAll(".cuadro").forEach(cuadro => {
+        cuadro.addEventListener("click", () => agrandarImg(cuadro))
+    });
+};
+
