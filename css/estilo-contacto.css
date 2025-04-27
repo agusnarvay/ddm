@@ -304,7 +304,6 @@ input[name=enviar]{ /*botón de enviar el formulario, el estilo es acorde al de 
     }
     .social i{ /*Tamaño de fuente de los íconos sociales del header2 */
         font-size: 14px;
-
     }
     .social a{
         text-decoration: none;

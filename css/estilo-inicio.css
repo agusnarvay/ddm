@@ -92,7 +92,7 @@ li a{ /* aquí se tomaron solamente los enlaces - para que no tenga ningún esti
     font-size: 40px;
     text-shadow: #00447A 1px 1px; /* Se le agregó una sombra al texto para que en el javascript destaque el color y se pueda ver sobre la imagen de fondo - se intentó igualmente sin la sombra y no quedaba bien*/
     padding-bottom: 50px;
-    animation: mov-titulo 5s ease-in ;
+    animation: mov-titulo 2s ease-in ;
 }
 .botones{ /* Contenedor de botones en la portada de la web - se le da un diseño adaptabla al responsive*/
     display: flex; /*facilita la alineacion y la organizacion de los elementos que estan dentro de los botones*/
@@ -273,10 +273,10 @@ h2.titulo2 { /* 'Nuestros servicios' - Titulo principal de la sección de produc
 /* media querys - responsive 950px */
 @keyframes mov-titulo {
     0% {
-    transform: translateX(-100%); /*posicion inicial - parte de su lugar original*/
+    transform: translateX(-100%); /*posicion inicial fuera de la página, a -100%*/
     }
     100% {
-    transform: translateX(0); /*posicion final - el titulo se desplaza hacia la izquierda completamente / hace que este pueda moverse constantemente*/
+    transform: translateX(0); /*posicion final - vuelve a su posicion original (centrada en la web)e*/
     }
  }
 
@@ -423,7 +423,6 @@ h2.titulo2 { /* 'Nuestros servicios' - Titulo principal de la sección de produc
     nav.desplegado ul li:nth-child(3){
         transition-delay: 0.6s;
     }    
-
     .abrir{ /*Se muestra el menú 'hamburguesa' que está oculto en el formato desktop*/
         display: block; /*se muestra SOLO en pantallas chicas*/
         width: 40px; /*es el tamaño del boton de hamburguesa*/
